@@ -6,10 +6,10 @@
   "scripts": {
     "start": "npm run watch:browser",
     "sync:browser": "browser-sync start --server platforms/browser/www --files \"platforms/browser/www\"",
-    "build:browser": "cordova build browser",
-    "watch-build:browser": "watch \"npm run build:browser\" \"www/\"",
-    "watch:browser": "parallelshell \"npm run watch-build:browser\" \"npm run sync:browser\"",
-
+    "cordova-build:browser": "cordova build browser",
+    "watch-cordova-build:browser": "watch \"npm run cordova-build:browser\" \"www/\" -d \"www/css\" -wait=1",
+    "watch:browser": "parallelshell \"npm run watch-cordova-build:browser\" \"npm run sync:browser\" \"npm run watch:css\"",
+    "watch:css": "node-sass www/scss/index.scss www/css/index.css --source-map www/css/index.css.map -w www/scss",
     "build:css": "node-sass www/scss/index.scss www/css/index.css --source-map www/css/index.css.map"
   },
   "repository": {
