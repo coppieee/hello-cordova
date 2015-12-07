@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"npm run watch:browser",
+    "start": "npm run watch:browser",
     "sync:browser": "browser-sync start --server platforms/browser/www --files \"platforms/browser/www\"",
     "build:browser": "cordova build browser",
     "watch-build:browser": "watch \"npm run build:browser\" \"www/\"",
-    "watch:browser": "parallelshell \"npm run watch-build:browser\" \"npm run sync:browser\""
+    "watch:browser": "parallelshell \"npm run watch-build:browser\" \"npm run sync:browser\"",
+
+    "build:css": "node-sass www/scss/index.scss www/css/index.css --source-map www/css/index.css.map"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,7 @@
   "author": "coppieee",
   "devDependencies": {
     "browser-sync": "^2.10.0",
+    "node-sass": "^3.4.2",
     "parallelshell": "^2.0.0",
     "watch": "^0.16.0"
   },
