@@ -1,4 +1,4 @@
 platforms/
 plugins/
 node_modules/
-www/css/index.css
+www/css/*
